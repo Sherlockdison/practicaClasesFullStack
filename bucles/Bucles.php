@@ -264,32 +264,40 @@
           echo "<hr>";
 
 
-/* pedir una explicacion sobre como se puede trabajar con este ejemplo
+/* pedir una explicacion sobre como se puede trabajar con este ejemplo */
           function paisesAmericanos(){
           $ceu = [
-          "esAmericano"  => ["Argentina" => "Buenos Aires", "Córdoba", "Santa Fé"],
-          "esAmericano"  => ["Brasil" => "Brasilia", "Rio de Janeiro", "Sao Pablo"],
-          "esAmericano"  => ["Colombia" => "Cartagena", "Bogota", "Barranquilla"],
-          "esEuropeo"  => ["Francia" => "Paris", "Nantes", "Lyon"],
-          "esEuropeo"  => ["Italia" => "Roma", "Milan", "Venecia"],
-          "esEuropeo"  => ["Alemania" => "Munich", "Berlin", "Frankfurt"]
+            "Argentina" => [
+              "esAmericano"  => true,
+              "ciudades" => ["Buenos Aires", "Córdoba", "Santa Fé"],
+            ],
+            "Brasil" => [
+              "esAmericano"  => true,
+              "ciudades" => ["Brasilia", "Rio de Janeiro", "Sao Pablo"],
+            ],
+          // "esAmericano"  => ["Brasil" => "Brasilia", "Rio de Janeiro", "Sao Pablo"],
+          // "esAmericano"  => ["Colombia" => "Cartagena", "Bogota", "Barranquilla"],
+          // "esEuropeo"  => ["Francia" => "Paris", "Nantes", "Lyon"],
+          // "esEuropeo"  => ["Italia" => "Roma", "Milan", "Venecia"],
+            "Alemania" => [
+              "esAmericano"  => false,
+              "ciudades" => ["Munich", "Berlin", "Frankfurt"]
+            ]
           ];
 
             var_dump($ceu);
 
 
-          foreach ($ceu as $pais => $ciudades) {
-            if ($pais == "esAmericano") {
-              echo "Las ciudades de $pais son: <br>
-              - $ciudades[0] <br>
-              - $ciudades[1] <br>
-              - $ciudades[2] <hr> ";
-            } else {
-              echo "Encontramos un esEuropeo";
+          foreach ($ceu as $pais => $data) {
+            if ($data["esAmericano"]) {
+              echo "Las ciudades de $pais son: <br>";
+              foreach ($data["ciudades"] as $ciudad) {
+                echo "- $ciudad <br>";
+              }
             }
           }
         }
-        echo paisesAmericanos();*/
+        echo paisesAmericanos();/**/
 
 
 
